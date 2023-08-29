@@ -16,7 +16,14 @@ export interface IUserInfo {
   };
 }
 
-export interface IUserActions {}
+export interface IAction {
+  type: string;
+  payload: string | string[] | number;
+}
+
+export interface IUserActions {
+  userDispatch: React.Dispatch<IAction>;
+}
 
 export interface IUserContext {
   actions: IUserActions;

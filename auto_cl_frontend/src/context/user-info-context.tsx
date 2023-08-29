@@ -2,7 +2,9 @@ import React from "react";
 import { IUserContext } from "../interfaces/user-info";
 
 export const defaultUserContext: IUserContext = {
-  actions: {},
+  actions: {
+    userDispatch: () => {},
+  },
   info: {
     firstName: "first",
     lastName: "last",
