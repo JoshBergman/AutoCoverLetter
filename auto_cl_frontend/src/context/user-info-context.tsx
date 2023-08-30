@@ -14,7 +14,7 @@ export const defaultUserContext: IUserContext = {
       company_info: {
         company_name: "Fake Company",
         company_values: ["hard work", "character"],
-        company_connection: "",
+        company_connection: "commitment to climate",
       },
       candidate_info: {
         skills: ["React", "Typescript"],

@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../context/user-info-context";
+import CoverLetterForm from "../components/form-components/cover-letter-form";
 
 const CoverLetterCurator = () => {
   const userCTX = useContext(UserContext);
@@ -14,8 +15,7 @@ const CoverLetterCurator = () => {
 
   return (
     <div>
-      {position_title}
-      <button onClick={updatePos}>Update</button>
+      <CoverLetterForm />
     </div>
   );
 };
