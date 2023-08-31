@@ -19,7 +19,7 @@ const CoverLetterForm = () => {
       const sectionInfo = cl_info[cl_key];
 
       formFields.push(
-        <React.Fragment key={"fragX - " + cl_key}>
+        <React.Fragment key={"FormX - " + cl_key}>
           <h5>{cl_key}</h5>
           {sectionInfo.map((singleField) => {
             const fieldType = singleField.field;
