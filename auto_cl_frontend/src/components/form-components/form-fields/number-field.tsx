@@ -2,15 +2,15 @@ import React, { useState, useRef } from "react";
 
 import { IAction } from "../../../interfaces/user-info";
 import FieldError from "./field-error";
-import { stringValidator } from "../../../validators/string-field-validation";
+import { numberValidator } from "../../../validators/number-field-validation";
 
 interface IStringFieldProps {
   dispatchPointer: React.Dispatch<IAction>;
   actionType: string;
-  fieldValue: string;
+  fieldValue: number;
 }
 
-const StringField = ({
+const NumberField = ({
   dispatchPointer,
   actionType,
   fieldValue,
@@ -23,8 +23,8 @@ const StringField = ({
     backgroundColor: "rgb(255, 0, 0, 15%)",
   };
 
-  const doValidations = (fieldVal: string) => {
-    const [validInput, errorMsg] = stringValidator(fieldVal);
+  const doValidations = (fieldVal: number) => {
+    const [validInput, errorMsg] = numberValidator(fieldVal, 4, 1);
     if (!validInput) {
       setError(errorMsg);
       return false;
@@ -35,8 +35,8 @@ const StringField = ({
   };
 
   const fieldChangeHandler = () => {
-    const fieldVal =
-      fieldRef.current == null ? "nulled" : fieldRef.current.value;
+    const fieldVal: number =
+      fieldRef.current == null ? -1 : parseInt(fieldRef.current.value + "");
 
     //if valid input update context value
     if (doValidations(fieldVal)) {
@@ -50,6 +50,10 @@ const StringField = ({
         onChange={fieldChangeHandler}
         ref={fieldRef}
         style={error !== "" ? errorStyle : {}}
+        type="number"
+        min="0"
+        max="999"
+        step="1"
         value={fieldValue}
       />
       {error !== "" && <FieldError errorMessage={error} />}
@@ -57,4 +61,4 @@ const StringField = ({
   );
 };
 
-export default StringField;
+export default NumberField;
