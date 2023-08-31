@@ -16,8 +16,8 @@ export const getCoverLetterFormInfo = (
       {
         question: "Candidate Last Name: ",
         placeholder: "Last Name",
-        info: info.firstName,
-        type: "UPDATE_FIRST_NAME",
+        info: info.lastName,
+        type: "UPDATE_LAST_NAME",
         field: "string",
       },
     ],
