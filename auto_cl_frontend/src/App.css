@@ -1,0 +1,11 @@
+.App {
+  font-family: "Montserrat", sans-serif;
+}
+
+.colorPicking {
+  color: hsl(203, 76%, 48%);
+}
+
+:root {
+  --brand-color: "hsl(203, 76%, 48%)";
+}

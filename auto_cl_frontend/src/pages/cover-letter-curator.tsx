@@ -1,23 +1,14 @@
-import { useContext } from "react";
-import { UserContext } from "../context/user-info-context";
+import { useState } from "react";
 import CoverLetterForm from "../components/form-components/cover-letter-form";
 
 const CoverLetterCurator = () => {
-  const userCTX = useContext(UserContext);
-  const position_title = userCTX.info.firstName;
+  const [showingForm, setShowingForm] = useState(true);
 
-  const updatePos = () => {
-    userCTX.actions.userDispatch({
-      type: "UPDATE_FIRST_NAME",
-      payload: "John",
-    });
+  const toggleShowingForm = () => {
+    setShowingForm((prevState) => !prevState);
   };
 
-  return (
-    <div>
-      <CoverLetterForm />
-    </div>
-  );
+  return <div>{showingForm && <CoverLetterForm />}</div>;
 };
 
 export default CoverLetterCurator;

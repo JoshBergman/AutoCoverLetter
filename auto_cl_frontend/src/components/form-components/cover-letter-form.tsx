@@ -1,9 +1,13 @@
 import React, { FormEvent, useContext } from "react";
 
+import styles from "./styles/cover-letter-form.module.css";
+import sectionStyles from "./styles/form-section.module.css";
 import { UserContext } from "../../context/user-info-context";
 import { getSingleField } from "./getField";
 import { getCoverLetterFormInfo } from "./cover-letter-form-info";
 import { ICoverLetterFormInfo } from "../../interfaces/cover-letter-form-info";
+import FormSection from "./form-ui/form-section";
+import Modal from "../UI/modal";
 
 const CoverLetterForm = () => {
   const { info, actions } = useContext(UserContext);
@@ -17,15 +21,17 @@ const CoverLetterForm = () => {
 
     cl_info_keys.forEach((cl_key) => {
       const sectionInfo = cl_info[cl_key];
+      const sectionHeading = (
+        <h5 className={sectionStyles.section_heading}>{cl_key}</h5>
+      );
 
       formFields.push(
-        <React.Fragment key={"FormX - " + cl_key}>
-          <h5>{cl_key}</h5>
+        <FormSection heading={sectionHeading} key={"FormX - " + cl_key}>
           {sectionInfo.map((singleField) => {
             const fieldType = singleField.field;
             return getSingleField(fieldType, singleField, dispatch);
           })}
-        </React.Fragment>
+        </FormSection>
       );
     });
 
@@ -33,18 +39,20 @@ const CoverLetterForm = () => {
   };
 
   return (
-    <form>
-      {getFormFields()}
-      <button
-        onClick={(e: FormEvent) => {
-          e.preventDefault();
-          console.log(info.firstName, info.lastName);
-        }}
-      >
-        See
-      </button>
-      <button type="submit">Generate Cover Letter</button>
-    </form>
+    <Modal>
+      <form className={styles.form}>
+        {getFormFields()}
+        <button
+          onClick={(e: FormEvent) => {
+            e.preventDefault();
+            console.log(info.firstName, info.lastName);
+          }}
+        >
+          See
+        </button>
+        <button type="submit">Generate Cover Letter</button>
+      </form>
+    </Modal>
   );
 };
 

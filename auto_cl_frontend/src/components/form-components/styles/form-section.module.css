@@ -1,0 +1,30 @@
+.section {
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  background-color: white;
+}
+
+.section_heading {
+  font-size: 1.6em;
+  font-weight: 500;
+  margin: 0;
+}
+
+.headingDiv {
+  width: clamp(300px, 50%, 600px);
+  align-self: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.expandIcon {
+  font-size: 1.5em;
+  margin-top: 0.2em;
+}
+.expandIcon:hover {
+  cursor: pointer;
+}

@@ -1,3 +1,5 @@
+import "./App.css";
+
 import CoverLetterCurator from "./pages/cover-letter-curator";
 
 const App = () => {
