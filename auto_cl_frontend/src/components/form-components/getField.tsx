@@ -15,8 +15,9 @@ export const getSingleField = (
         <StringField
           key={"FieldString-" + fieldInfo.placeholder}
           dispatchPointer={dispatch}
-          actionType={fieldInfo.type}
           fieldValue={fieldInfo.info as string}
+          actionType={fieldInfo.type}
+          fieldInfo={fieldInfo}
         />
       );
     case "stringArray":
@@ -26,6 +27,7 @@ export const getSingleField = (
           dispatchPointer={dispatch}
           actionType={fieldInfo.type}
           fieldValue={fieldInfo.info as string[]}
+          fieldInfo={fieldInfo}
         />
       );
     case "number":

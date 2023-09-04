@@ -1,8 +1,9 @@
 .section {
-  border: 1px solid gray;
+  border-bottom: 1px solid gray;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 80%;
 
   background-color: white;
 }
@@ -11,6 +12,15 @@
   font-size: 1.6em;
   font-weight: 500;
   margin: 0;
+  color: rgb(40, 87, 207);
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.section_heading:hover {
+  cursor: pointer;
 }
 
 .headingDiv {

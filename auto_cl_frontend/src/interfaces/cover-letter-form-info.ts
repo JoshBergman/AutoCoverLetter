@@ -5,5 +5,9 @@ export interface ICoverLetterFormInfo {
     info: number | string | string[];
     type: string;
     field: string;
+    validationSettings?: {
+      maxItemLength?: number;
+      maxItems?: number;
+    };
   }[];
 }

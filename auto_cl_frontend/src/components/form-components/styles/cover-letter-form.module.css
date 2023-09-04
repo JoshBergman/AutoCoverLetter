@@ -1,8 +1,12 @@
 .form {
-  border: 2px solid black;
-
   width: 50%;
-  margin: 20vh auto 0 auto;
+  margin: 0 auto;
+  margin-top: 10vh;
   display: flex;
   flex-direction: column;
+  background-color: white;
+  align-items: center;
+  gap: 20px;
+  border-radius: 5px;
+  padding: 20px;
 }

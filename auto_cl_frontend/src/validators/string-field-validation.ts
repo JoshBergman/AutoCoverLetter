@@ -1,7 +1,10 @@
-export const stringValidator = (string: string): [boolean, string] => {
+export const stringValidator = (
+  string: string,
+  maxLength: number
+): [boolean, string] => {
   const stringLength = string.length;
-  if (stringLength >= 20) {
-    return [false, "Too many characters. (Max 20)"];
+  if (stringLength > maxLength) {
+    return [false, `Too many characters. (Max ${maxLength})`];
   }
 
   return [true, ""];

@@ -6,18 +6,18 @@ export const defaultUserContext: IUserContext = {
     userDispatch: () => {},
   },
   info: {
-    firstName: "first",
-    lastName: "last",
+    firstName: "",
+    lastName: "",
     cover_letter: {
       paragraph_count: 2,
-      position_title: "Developer",
+      position_title: "",
       company_info: {
-        company_name: "Fake Company",
-        company_values: ["hard work", "character"],
-        company_connection: "commitment to climate",
+        company_name: "",
+        company_values: [""],
+        company_connection: "",
       },
       candidate_info: {
-        skills: ["React", "Typescript"],
+        skills: [""],
         accomplishments: [""],
       },
     },

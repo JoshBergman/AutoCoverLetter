@@ -1,14 +1,16 @@
 export const stringArrayValidator = (
-  stringArray: string[]
+  stringArray: string[],
+  maxItemLength: number,
+  maxItems: number
 ): [boolean, string] => {
   const length = stringArray.length;
-  if (length > 3) {
-    return [false, "Too many items. (Max 3)"];
+  if (length > maxItems) {
+    return [false, `Too many items. (Max ${maxItems})`];
   }
 
   const lengths = stringArray.map((skill) => skill.length);
-  if (lengths.filter((skillLength) => skillLength > 15).length > 0) {
-    return [false, "Values may only contain 15 characters each"];
+  if (lengths.filter((skillLength) => skillLength > maxItemLength).length > 0) {
+    return [false, `Too many characters. (Max ${maxItemLength})`];
   }
 
   return [true, ""];

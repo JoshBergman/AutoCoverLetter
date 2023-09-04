@@ -7,14 +7,14 @@ export const getCoverLetterFormInfo = (
   const returnInfo: ICoverLetterFormInfo = {
     Candidate: [
       {
-        question: "Candidate First Name",
+        question: "First Name",
         placeholder: "First Name",
         info: info.firstName,
         type: "UPDATE_FIRST_NAME",
         field: "string",
       },
       {
-        question: "Candidate Last Name",
+        question: "Last Name",
         placeholder: "Last Name",
         info: info.lastName,
         type: "UPDATE_LAST_NAME",
@@ -26,6 +26,10 @@ export const getCoverLetterFormInfo = (
         info: info.cover_letter.candidate_info.skills,
         type: "UPDATE_SKILLS",
         field: "stringArray",
+        validationSettings: {
+          maxItemLength: 15,
+          maxItems: 4,
+        },
       },
       {
         question: "Highlighted Achievements",
@@ -34,6 +38,10 @@ export const getCoverLetterFormInfo = (
         info: info.cover_letter.candidate_info.accomplishments,
         type: "UPDATE_ACCOMPLISHMENTS",
         field: "stringArray",
+        validationSettings: {
+          maxItemLength: 50,
+          maxItems: 3,
+        },
       },
     ],
     Company: [
@@ -65,6 +73,9 @@ export const getCoverLetterFormInfo = (
         info: info.cover_letter.company_info.company_connection,
         type: "UPDATE_COMPANY_CONNECTION",
         field: "string",
+        validationSettings: {
+          maxItemLength: 30,
+        },
       },
     ],
     "Cover Letter": [
