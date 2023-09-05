@@ -38,11 +38,28 @@
   color: #787878;
   background-color: transparent;
   border: none;
+
   font-size: 1.18rem;
-  margin-left: auto;
+  font-weight: 500;
+  float: right;
+
+  align-self: flex-end;
+  margin-right: 10px;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
 .cancelButton:hover {
   color: #5f5f5f;
   cursor: pointer;
+}
+
+.formHeader {
+  font-size: 1.6em;
+  font-weight: 500;
+  position: relative;
+  margin: 0 auto;
+  margin-top: -40px;
+  width: 84%;
+  text-align: center;
 }

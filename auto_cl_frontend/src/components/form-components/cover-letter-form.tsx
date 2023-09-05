@@ -54,6 +54,7 @@ const CoverLetterForm = ({ toggleShowingForm }: ICoverLetterFormProps) => {
         <button className={styles.cancelButton} onClick={cancelForm}>
           <ImCancelCircle />
         </button>
+        <h2 className={styles.formHeader}>Cover Letter Information</h2>
         {getFormFields()}
         <button className={styles.button} type="submit">
           Generate Cover Letter
