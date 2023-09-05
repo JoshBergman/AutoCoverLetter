@@ -60,7 +60,9 @@ const StringArrayField = ({
 
   return (
     <React.Fragment>
-      <label htmlFor={fieldInfo.question}>{fieldInfo.question}</label>
+      <label className={styles.inputLabel} htmlFor={fieldInfo.question}>
+        {fieldInfo.question}
+      </label>
       <input
         className={styles.input}
         type="text"

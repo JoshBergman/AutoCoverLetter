@@ -10,3 +10,19 @@
   outline: none;
   transition: all 0.2s ease-in-out;
 }
+
+.inputLabel {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.fieldError {
+  color: red;
+  font-size: 0.8rem;
+  margin: 0;
+  margin-top: 0.5rem;
+  display: block;
+}

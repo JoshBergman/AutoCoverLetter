@@ -4,17 +4,20 @@ import styles from "./styles/field-style.module.css";
 import { IAction } from "../../../interfaces/user-info";
 import FieldError from "./field-error";
 import { numberValidator } from "../../../validators/number-field-validation";
+import { ICoverLetterFormInfo } from "../../../interfaces/cover-letter-form-info";
 
 interface IStringFieldProps {
   dispatchPointer: React.Dispatch<IAction>;
   actionType: string;
   fieldValue: number;
+  fieldInfo: ICoverLetterFormInfo["X"][0];
 }
 
 const NumberField = ({
   dispatchPointer,
   actionType,
   fieldValue,
+  fieldInfo,
 }: IStringFieldProps) => {
   const [error, setError] = useState("");
   const fieldRef = useRef<HTMLInputElement>(null);
@@ -47,6 +50,9 @@ const NumberField = ({
 
   return (
     <React.Fragment>
+      <label className={styles.inputLabel} htmlFor={fieldInfo.question}>
+        {fieldInfo.question}
+      </label>
       <input
         className={styles.input}
         onChange={fieldChangeHandler}

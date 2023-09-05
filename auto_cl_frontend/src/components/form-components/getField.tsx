@@ -37,6 +37,7 @@ export const getSingleField = (
           dispatchPointer={dispatch}
           actionType={fieldInfo.type}
           fieldValue={fieldInfo.info as number}
+          fieldInfo={fieldInfo}
         />
       );
     default:
