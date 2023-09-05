@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 
+import styles from "./styles/field-style.module.css";
 import { IAction } from "../../../interfaces/user-info";
 import FieldError from "./field-error";
 import { numberValidator } from "../../../validators/number-field-validation";
@@ -47,6 +48,7 @@ const NumberField = ({
   return (
     <React.Fragment>
       <input
+        className={styles.input}
         onChange={fieldChangeHandler}
         ref={fieldRef}
         style={error !== "" ? errorStyle : {}}

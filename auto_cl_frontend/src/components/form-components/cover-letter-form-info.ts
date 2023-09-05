@@ -51,6 +51,9 @@ export const getCoverLetterFormInfo = (
         info: info.cover_letter.company_info.company_name,
         type: "UPDATE_COMPANY_NAME",
         field: "string",
+        validationSettings: {
+          maxItemLength: 30,
+        },
       },
       {
         question: "Position Title",
@@ -68,13 +71,12 @@ export const getCoverLetterFormInfo = (
       },
       {
         question: "Personal Connection To Company",
-        placeholder:
-          "I really admire the company's dedication to the enviroment.",
+        placeholder: "I admire the company's dedication to the enviroment.",
         info: info.cover_letter.company_info.company_connection,
         type: "UPDATE_COMPANY_CONNECTION",
         field: "string",
         validationSettings: {
-          maxItemLength: 30,
+          maxItemLength: 55,
         },
       },
     ],

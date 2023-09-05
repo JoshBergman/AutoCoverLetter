@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 
+import styles from "./styles/field-style.module.css";
 import { IAction } from "../../../interfaces/user-info";
 import FieldError from "./field-error";
 import { stringValidator } from "../../../validators/string-field-validation";
@@ -21,7 +22,7 @@ const StringField = ({
   const [error, setError] = useState("");
   const fieldRef = useRef<HTMLInputElement>(null);
 
-  const maxLength = fieldInfo.validationSettings?.maxItemLength || 15;
+  const maxLength = fieldInfo.validationSettings?.maxItemLength || 25;
   const errorStyle: React.CSSProperties = {
     border: "2px solid rgb(255, 0, 0, 30%)",
     backgroundColor: "rgb(255, 0, 0, 15%)",
@@ -52,6 +53,7 @@ const StringField = ({
     <React.Fragment>
       <label htmlFor={fieldInfo.question}>{fieldInfo.question}</label>
       <input
+        className={styles.input}
         type="text"
         id={fieldInfo.question}
         placeholder={fieldInfo.placeholder}

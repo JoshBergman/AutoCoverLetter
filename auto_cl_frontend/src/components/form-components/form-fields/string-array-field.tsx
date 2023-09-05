@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 
+import styles from "./styles/field-style.module.css";
 import { IAction } from "../../../interfaces/user-info";
 import FieldError from "./field-error";
 import { stringArrayValidator } from "../../../validators/string-array-field-validation";
@@ -61,6 +62,7 @@ const StringArrayField = ({
     <React.Fragment>
       <label htmlFor={fieldInfo.question}>{fieldInfo.question}</label>
       <input
+        className={styles.input}
         type="text"
         id={fieldInfo.question}
         placeholder={fieldInfo.placeholder}

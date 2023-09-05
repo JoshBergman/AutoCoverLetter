@@ -1,5 +1,5 @@
 .form {
-  width: 50%;
+  width: clamp(300px, 50%, 720px);
   margin: 0 auto;
   margin-top: 10vh;
   display: flex;
