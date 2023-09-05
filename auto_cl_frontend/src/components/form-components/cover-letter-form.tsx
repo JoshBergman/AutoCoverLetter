@@ -1,4 +1,5 @@
 import React, { FormEvent, useContext } from "react";
+import { ImCancelCircle } from "react-icons/im";
 
 import styles from "./styles/cover-letter-form.module.css";
 import sectionStyles from "./styles/form-section.module.css";
@@ -9,7 +10,11 @@ import { ICoverLetterFormInfo } from "../../interfaces/cover-letter-form-info";
 import FormSection from "./form-ui/form-section";
 import Modal from "../UI/modal";
 
-const CoverLetterForm = () => {
+interface ICoverLetterFormProps {
+  toggleShowingForm: () => void;
+}
+
+const CoverLetterForm = ({ toggleShowingForm }: ICoverLetterFormProps) => {
   const { info, actions } = useContext(UserContext);
   const dispatch = actions.userDispatch;
 
@@ -38,19 +43,21 @@ const CoverLetterForm = () => {
     return formFields;
   };
 
+  const cancelForm = (e: FormEvent) => {
+    e.preventDefault();
+    toggleShowingForm();
+  };
+
   return (
     <Modal>
       <form className={styles.form}>
-        {getFormFields()}
-        <button
-          onClick={(e: FormEvent) => {
-            e.preventDefault();
-            console.log(info.firstName, info.lastName);
-          }}
-        >
-          See
+        <button className={styles.cancelButton} onClick={cancelForm}>
+          <ImCancelCircle />
         </button>
-        <button type="submit">Generate Cover Letter</button>
+        {getFormFields()}
+        <button className={styles.button} type="submit">
+          Generate Cover Letter
+        </button>
       </form>
     </Modal>
   );

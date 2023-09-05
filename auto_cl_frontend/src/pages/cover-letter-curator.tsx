@@ -8,7 +8,11 @@ const CoverLetterCurator = () => {
     setShowingForm((prevState) => !prevState);
   };
 
-  return <div>{showingForm && <CoverLetterForm />}</div>;
+  return (
+    <div>
+      {showingForm && <CoverLetterForm toggleShowingForm={toggleShowingForm} />}
+    </div>
+  );
 };
 
 export default CoverLetterCurator;

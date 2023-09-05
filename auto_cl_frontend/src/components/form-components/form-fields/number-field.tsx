@@ -51,7 +51,7 @@ const NumberField = ({
   return (
     <React.Fragment>
       <label className={styles.inputLabel} htmlFor={fieldInfo.question}>
-        {fieldInfo.question}
+        {fieldInfo.question + ""}
       </label>
       <input
         className={styles.input}
