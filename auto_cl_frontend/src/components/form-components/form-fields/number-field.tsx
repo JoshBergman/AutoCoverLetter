@@ -54,6 +54,7 @@ const NumberField = ({
         {fieldInfo.question + ""}
       </label>
       <input
+        id={fieldInfo.question}
         className={styles.input}
         onChange={fieldChangeHandler}
         ref={fieldRef}

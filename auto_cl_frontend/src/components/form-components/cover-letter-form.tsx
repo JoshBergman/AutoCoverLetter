@@ -50,7 +50,7 @@ const CoverLetterForm = ({ toggleShowingForm }: ICoverLetterFormProps) => {
 
   return (
     <Modal>
-      <form className={styles.form}>
+      <form id={"cl_form"} className={styles.form}>
         <button className={styles.cancelButton} onClick={cancelForm}>
           <ImCancelCircle />
         </button>
