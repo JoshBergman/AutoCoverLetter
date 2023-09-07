@@ -1,14 +1,15 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import styles from "../styles/form-section.module.css";
 import ShowMoreOrLessButton from "./show-more-or-less-button";
 
 interface IFormSectionProps {
   children: React.ReactNode;
   heading: React.ReactNode;
+  defaultShow?: boolean;
 }
 
-const FormSection = ({ children, heading }: IFormSectionProps) => {
-  const [showingSection, setShowingSection] = useState(false);
+const FormSection = ({ children, heading, defaultShow }: IFormSectionProps) => {
+  const [showingSection, setShowingSection] = useState(defaultShow || false);
 
   const toggleShowing = () => {
     setShowingSection((prevState) => !prevState);

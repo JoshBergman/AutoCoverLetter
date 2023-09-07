@@ -24,14 +24,14 @@
   box-sizing: border-box;
   outline: none;
   transition: all 0.2s ease-in-out;
-  background-color: rgb(40, 87, 207);
+  background-color: var(--brand-color);
   color: white;
   font-weight: 500;
   cursor: pointer;
 }
 
 .button:hover {
-  background-color: rgb(40, 87, 207, 0.8);
+  background-color: var(--brand-color-hover);
 }
 
 .cancelButton {

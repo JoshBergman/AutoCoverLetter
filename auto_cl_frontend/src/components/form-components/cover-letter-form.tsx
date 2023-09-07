@@ -31,7 +31,11 @@ const CoverLetterForm = ({ toggleShowingForm }: ICoverLetterFormProps) => {
       );
 
       formFields.push(
-        <FormSection heading={sectionHeading} key={"FormX - " + cl_key}>
+        <FormSection
+          defaultShow={cl_key === "Company"}
+          heading={sectionHeading}
+          key={"FormX - " + cl_key}
+        >
           {sectionInfo.map((singleField) => {
             const fieldType = singleField.field;
             return getSingleField(fieldType, singleField, dispatch);

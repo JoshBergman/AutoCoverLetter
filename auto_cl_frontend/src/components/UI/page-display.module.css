@@ -1,0 +1,16 @@
+.page {
+  background-color: white;
+  width: clamp(300px, 60%, 720px);
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 5vh;
+  box-shadow: 0 0 0 2px #ccc;
+  min-height: 80vh;
+}
+
+.pageP {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 2em;
+  font-size: 1em;
+}

@@ -2,10 +2,15 @@
   font-family: "Montserrat", sans-serif;
 }
 
+html {
+  background-color: #f2f3f4;
+}
+
 .colorPicking {
   color: hsl(203, 76%, 48%);
 }
 
 :root {
-  --brand-color: "hsl(203, 76%, 48%)";
+  --brand-color: #2857cf;
+  --brand-color-hover: #2857cfcc;
 }
