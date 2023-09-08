@@ -39,3 +39,18 @@
 .expandIcon:hover {
   cursor: pointer;
 }
+
+.resetBtn {
+  background-color: var(--brand-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  margin-left: 0.5em;
+}
+.resetBtn:hover {
+  cursor: pointer;
+  background-color: var(--brand-color-hover);
+}

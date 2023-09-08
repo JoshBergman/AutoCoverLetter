@@ -5,7 +5,7 @@ import CoverLetterCurator from "./pages/cover-letter-curator";
 const App = () => {
   return (
     <div className="App">
-      <header className="App-header">header</header>
+      <header className="header">Auto Cover Letter</header>
       <CoverLetterCurator />
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { FormEvent, useContext } from "react";
+import React, { FormEvent, useContext, useState } from "react";
 import { ImCancelCircle } from "react-icons/im";
 
 import styles from "./styles/cover-letter-form.module.css";
@@ -15,8 +15,22 @@ interface ICoverLetterFormProps {
 }
 
 const CoverLetterForm = ({ toggleShowingForm }: ICoverLetterFormProps) => {
+  const [loadingAPI, setLoadingAPI] = useState(false);
   const { info, actions } = useContext(UserContext);
   const dispatch = actions.userDispatch;
+
+  const submitHandler = (e: FormEvent) => {
+    e.preventDefault();
+
+    setLoadingAPI(true);
+    //get cover letter from backend then set loading to false
+
+    //placholder
+    setTimeout(() => {
+      setLoadingAPI(false);
+      toggleShowingForm();
+    }, 2000);
+  };
 
   const getFormFields = () => {
     //generates each form section and that sections' question fields from "../../interfaces/cover-letter-form-info"
@@ -54,14 +68,14 @@ const CoverLetterForm = ({ toggleShowingForm }: ICoverLetterFormProps) => {
 
   return (
     <Modal>
-      <form id={"cl_form"} className={styles.form}>
+      <form onSubmit={submitHandler} id={"cl_form"} className={styles.form}>
         <button className={styles.cancelButton} onClick={cancelForm}>
           <ImCancelCircle />
         </button>
         <h2 className={styles.formHeader}>Cover Letter Information</h2>
         {getFormFields()}
         <button className={styles.button} type="submit">
-          Generate Cover Letter
+          {loadingAPI ? "Loading..." : "Generate Cover Letter"}
         </button>
       </form>
     </Modal>
