@@ -21,8 +21,8 @@ const PageDisplay = ({ pageContents, children }: IPageDisplayProps) => {
 
   return (
     <div className={styles.page}>
-      {pushP()}
-      {children}
+      <div className={styles.textContent}>{pushP()}</div>
+      <div className={styles.buttonContainer}>{children}</div>
     </div>
   );
 };

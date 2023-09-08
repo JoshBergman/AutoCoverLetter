@@ -1,4 +1,6 @@
 import React from "react";
+
+import util from "./local-storage";
 import { IUserContext } from "../interfaces/user-info";
 
 export const defaultUserContext: IUserContext = {
@@ -6,19 +8,19 @@ export const defaultUserContext: IUserContext = {
     userDispatch: () => {},
   },
   info: {
-    firstName: "",
-    lastName: "",
+    firstName: util.getSavedItem("firstName") || "",
+    lastName: util.getSavedItem("lastName") || "",
     cover_letter: {
       paragraph_count: 2,
-      position_title: "",
+      position_title: util.getSavedItem("positionTitle") || "",
       company_info: {
-        company_name: "",
-        company_values: [""],
-        company_connection: "",
+        company_name: util.getSavedItem("companyName") || "",
+        company_values: util.getSavedItem("companyValues") || [""],
+        company_connection: util.getSavedItem("companyConnection") || "",
       },
       candidate_info: {
-        skills: [""],
-        accomplishments: [""],
+        skills: util.getSavedItem("skills") || [""],
+        accomplishments: util.getSavedItem("accomplishments") || [""],
       },
     },
   },

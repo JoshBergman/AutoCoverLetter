@@ -1,16 +1,32 @@
 .page {
   background-color: white;
-  width: clamp(300px, 60%, 720px);
+  width: clamp(300px, 60%, 690px);
   margin: 0 auto;
   padding: 20px;
   margin-top: 5vh;
   box-shadow: 0 0 0 2px #ccc;
   min-height: 80vh;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .pageP {
   width: 80%;
   margin: 0 auto;
-  margin-top: 2em;
+  margin-top: 1em;
   font-size: 1em;
+}
+
+.textContent {
+  width: 100%;
+  margin: 20px 0;
+  height: 100%;
+}
+
+.buttonContainer {
+  width: 100%;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
 }
