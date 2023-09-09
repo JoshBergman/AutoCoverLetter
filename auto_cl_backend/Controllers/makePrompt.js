@@ -35,7 +35,7 @@ const makePrompt = (cl_info) => {
   if (companyConnection) {
     prompt += ` Connection: ${companyConnection}.`;
   }
-  prompt += ` The cover letter should be written in a professional tone but should seem authentic.`;
+  prompt += ` The cover letter should be written in a professional tone but should seem authentic, also do not include contact info at the top of the letter.`;
 
   return prompt;
 };
