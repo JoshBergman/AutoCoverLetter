@@ -1,7 +1,9 @@
 const OpenAI = require("openai");
+const makePrompt = require("./makePrompt");
 
 exports.v1_auto_cl = async (req, res) => {
-  console.log("Running autocl");
+  const cl_info = req.body.cl_info;
+  const prompt = makePrompt(cl_info);
 
   //retrieve api key
   const apiKey = process.env.OPENAI_API_KEY;
@@ -24,12 +26,11 @@ exports.v1_auto_cl = async (req, res) => {
       messages: [
         {
           role: "user",
-          content:
-            "Hello! This is a test of an api, please tell me a funny joke to know you got this request! Cheers!",
+          content: prompt,
         },
       ],
     });
-    console.log(response);
+
     res.status(200).json({ message: response.choices[0].message });
   } catch (error) {
     res.status(500).json({ error: "Error - " + error });
