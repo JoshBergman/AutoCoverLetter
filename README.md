@@ -25,4 +25,4 @@ Check out our live demo [here](https://autocl-abb1d.web.app).
 - Frontend: React.js with TypeScript
 - Backend: Express.js with Node.js
 
-Questions or feedback? Feel free to [reach out](insert_contact_info)!
+Questions or feedback? Feel free to [reach out](https://joshuabergman.dev)!
