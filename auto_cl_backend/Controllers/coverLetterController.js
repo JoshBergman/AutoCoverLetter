@@ -2,7 +2,7 @@ const OpenAI = require("openai");
 const makePrompt = require("./makePrompt");
 
 exports.v1_auto_cl = async (req, res) => {
-  const cl_info = req.body.cl_info;
+  const cl_info = req.body;
   const prompt = makePrompt(cl_info);
 
   //retrieve api key
