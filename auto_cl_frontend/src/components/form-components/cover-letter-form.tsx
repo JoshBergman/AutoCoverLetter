@@ -38,7 +38,7 @@ const CoverLetterForm = ({ toggleShowingForm }: ICoverLetterFormProps) => {
     })
       .then((res) => {
         res.json().then((data) => {
-          actions.update_letter(data.cover_letter);
+          actions.update_letter(data.message.content);
         });
       })
       .catch((err) => {
