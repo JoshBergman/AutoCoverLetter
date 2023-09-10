@@ -2,10 +2,10 @@ const Copyright = () => {
   return (
     <h4
       style={{
-        position: "absolute",
-        bottom: "5px",
-        left: "5px",
+        display: "block",
+        fontSize: "0.8rem",
         margin: 0,
+        marginTop: "40px",
       }}
     >
       © 2023 Joshua Bergman
