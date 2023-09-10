@@ -6,7 +6,9 @@ import { IUserContext } from "../interfaces/user-info";
 export const defaultUserContext: IUserContext = {
   actions: {
     userDispatch: () => {},
+    update_letter: () => {},
   },
+  cover_letter: util.getSavedItem("coverLetter") || "",
   info: {
     firstName: util.getSavedItem("firstName") || "",
     lastName: util.getSavedItem("lastName") || "",

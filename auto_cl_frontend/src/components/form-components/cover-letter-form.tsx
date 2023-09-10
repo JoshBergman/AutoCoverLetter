@@ -9,6 +9,7 @@ import { getCoverLetterFormInfo } from "./cover-letter-form-info";
 import { ICoverLetterFormInfo } from "../../interfaces/cover-letter-form-info";
 import FormSection from "./form-ui/form-section";
 import Modal from "../UI/modal";
+import { validateBody } from "../../validators/cl-validate-body";
 
 interface ICoverLetterFormProps {
   toggleShowingForm: () => void;
@@ -21,9 +22,31 @@ const CoverLetterForm = ({ toggleShowingForm }: ICoverLetterFormProps) => {
 
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
-
+    if (loadingAPI) return;
     setLoadingAPI(true);
-    //get cover letter from backend then set loading to false
+
+    const body = validateBody(info);
+    const url =
+      "http://auto-cl-backend-b93e19610dbb.herokuapp.com/ai/coverletter";
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    })
+      .then((res) => {
+        res.json().then((data) => {
+          actions.update_letter(data.cover_letter);
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+        actions.update_letter(
+          "Error - Could not generate cover letter, please try again later."
+        );
+      });
 
     //placholder
     setTimeout(() => {

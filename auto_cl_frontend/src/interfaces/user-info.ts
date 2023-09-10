@@ -23,9 +23,11 @@ export interface IAction {
 
 export interface IUserActions {
   userDispatch: React.Dispatch<IAction>;
+  update_letter: (new_letter: string) => void;
 }
 
 export interface IUserContext {
   actions: IUserActions;
+  cover_letter: string;
   info: IUserInfo;
 }
