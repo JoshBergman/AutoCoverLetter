@@ -27,10 +27,10 @@ const CoverLetterForm = ({ toggleShowingForm }: ICoverLetterFormProps) => {
 
     const body = validateBody(info);
     const url =
-      "http://auto-cl-backend-b93e19610dbb.herokuapp.com/ai/coverletter";
-
+      "https://auto-cl-backend-b93e19610dbb.herokuapp.com/ai/coverletter";
     fetch(url, {
       method: "POST",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
