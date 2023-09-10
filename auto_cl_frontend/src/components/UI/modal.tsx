@@ -1,13 +1,22 @@
 import React from "react";
 
-import styles from "./modal.module.css";
+import styles from "./styles/modal.module.css";
 
 interface IModalProps {
   children: React.ReactNode;
+  onClick: () => void;
 }
 
-const Modal = ({ children }: IModalProps) => {
-  return <div className={styles.modal}>{children}</div>;
+const Modal = ({ children, onClick }: IModalProps) => {
+  const onClickHandler = () => {
+    onClick();
+  };
+
+  return (
+    <div onClick={onClickHandler} className={styles.modal}>
+      {children}
+    </div>
+  );
 };
 
 export default Modal;

@@ -24,6 +24,9 @@ const CoverLetterForm = ({ toggleShowingForm }: ICoverLetterFormProps) => {
     e.preventDefault();
     if (loadingAPI) return;
     setLoadingAPI(true);
+    actions.update_letter(
+      "Loading... This may take a few seconds. \nPlease do not refresh the page."
+    );
 
     const body = validateBody(info);
     const url =
@@ -90,8 +93,15 @@ const CoverLetterForm = ({ toggleShowingForm }: ICoverLetterFormProps) => {
   };
 
   return (
-    <Modal>
-      <form onSubmit={submitHandler} id={"cl_form"} className={styles.form}>
+    <Modal onClick={toggleShowingForm}>
+      <form
+        onSubmit={submitHandler}
+        id={"cl_form"}
+        className={styles.form}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
         <button className={styles.cancelButton} onClick={cancelForm}>
           <ImCancelCircle />
         </button>

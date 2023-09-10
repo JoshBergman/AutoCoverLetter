@@ -3,12 +3,14 @@ import React from "react";
 import util from "./local-storage";
 import { IUserContext } from "../interfaces/user-info";
 
+const noCLmsg = "Click 'Make A Cover Letter' to get started!";
+
 export const defaultUserContext: IUserContext = {
   actions: {
     userDispatch: () => {},
     update_letter: () => {},
   },
-  cover_letter: util.getSavedItem("coverLetter") || "",
+  cover_letter: util.getSavedItem("coverLetter") || noCLmsg,
   info: {
     firstName: util.getSavedItem("firstName") || "",
     lastName: util.getSavedItem("lastName") || "",
@@ -27,6 +29,13 @@ export const defaultUserContext: IUserContext = {
     },
   },
 };
+
+if (
+  defaultUserContext.cover_letter ===
+  "Error - Could not generate cover letter, please try again later."
+) {
+  defaultUserContext.cover_letter = noCLmsg;
+}
 
 export const UserContext =
   React.createContext<IUserContext>(defaultUserContext);

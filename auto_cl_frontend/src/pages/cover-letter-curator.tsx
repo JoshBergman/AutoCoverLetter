@@ -6,8 +6,10 @@ import PageDisplay from "../components/UI/page-display";
 import { UserContext } from "../context/user-info-context";
 
 const CoverLetterCurator = () => {
-  const [showingForm, setShowingForm] = useState(true);
   const coverLetter = useContext(UserContext).cover_letter;
+  const [showingForm, setShowingForm] = useState(
+    coverLetter === "" || coverLetter.length < 60 ? true : false
+  );
 
   const toggleShowingForm = () => {
     setShowingForm((prevState) => !prevState);
@@ -15,7 +17,7 @@ const CoverLetterCurator = () => {
 
   return (
     <React.Fragment>
-      <PageDisplay pageContents={coverLetter}>
+      <PageDisplay useCopyBtn={true} pageContents={coverLetter}>
         <button className={styles.clBtn} onClick={toggleShowingForm}>
           Make A Cover Letter
         </button>
