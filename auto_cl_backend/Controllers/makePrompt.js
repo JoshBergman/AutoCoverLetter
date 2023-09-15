@@ -1,58 +1,59 @@
-const makePrompt = (cl_info) => {
+const makePrompt = (cl_info, fallback) => {
   const getProperty = (property) => {
     if (property) {
       return property;
     } else {
-      console.error("Error: Property is undefined - " + property);
-      return false;
+      return fallback;
     }
   };
 
-  const firstName = getProperty(cl_info?.firstName);
-  const lastName = getProperty(cl_info?.lastName);
+  const extendPrompt = (extensionMsg, value) => {
+    if (value) {
+      if (value !== "" || value.length !== 0) {
+        const promptAppend = extensionMsg + " ";
+        const valuesAsString =  typeof value === "string" ? value : value.join(", ") + ". ";
+        const returnMsg = promptAppend + valuesAsString;
+        
+        return returnMsg;
+      }
+    }
 
-  const skills = getProperty(cl_info?.cover_letter?.candidate_info?.skills);
+    return "";
+  };
+
+
+  //defining prompt variables and filling in any skipped values with fallback
+  const firstName = getProperty(cl_info?.firstName, "John");
+  const lastName = getProperty(cl_info?.lastName, "Doe");
+
+  const skills = getProperty(cl_info?.cover_letter?.candidate_info?.skills, []);
   const accomplishments = getProperty(
-    cl_info?.cover_letter?.candidate_info?.accomplishments
+    cl_info?.cover_letter?.candidate_info?.accomplishments, 
+    []
   );
 
-  const paragraphCount = getProperty(cl_info?.cover_letter?.paragraph_count);
-  const positionTitle = getProperty(cl_info?.cover_letter?.position_title);
+  const paragraphCount = getProperty(cl_info?.cover_letter?.paragraph_count, 2);
+  const positionTitle = getProperty(cl_info?.cover_letter?.position_title, "generic");
   const companyName = getProperty(
-    cl_info?.cover_letter?.company_info?.company_name
+    cl_info?.cover_letter?.company_info?.company_name, "Company"
   );
 
   const companyValues = getProperty(
-    cl_info?.cover_letter?.company_info?.company_values
+    cl_info?.cover_letter?.company_info?.company_values, []
   );
   const companyConnection = getProperty(
-    cl_info?.cover_letter?.company_info?.company_connection
+    cl_info?.cover_letter?.company_info?.company_connection, ""
   );
 
-  let prompt = `Write a ${paragraphCount} paragraph cover letter with the name ${firstName} ${lastName}, for a ${positionTitle} position at ${companyName}.`;
 
-  if (skills || accomplishments) {
-    prompt += ` Incorporate the following:`;
-    if (skills) {
-      prompt += ` Skills such as ${skills.join(", ")}.`;
-    }
-    if (accomplishments) {
-      prompt += ` Accomplishments such as ${accomplishments.join(", ")}.`;
-    }
-  }
+  let prompt = `Write a ${paragraphCount} paragraph cover letter with the name ${firstName} ${lastName}, for a ${positionTitle} position at ${companyName}. `;
+  prompt += extendPrompt("The candidate should include skills such as", skills);
+  prompt += extendPrompt("The candidate should include accomplishments such as", accomplishments);
 
-  if (companyValues || companyConnection) {
-    prompt += ` Mention how the candidate and company share the following:`;
-  }
+  prompt += extendPrompt("The letter should mention how the company and candidate share values such as", companyValues);
+  prompt += extendPrompt("The letter should mention how the company and candidate share a connection such as", companyConnection);
 
-  if (companyValues) {
-    prompt += ` Values such as ${companyValues.join(", ")}.`;
-  }
-  if (companyConnection) {
-    prompt += ` Connection: ${companyConnection}.`;
-  }
-
-  prompt += ` The cover letter should be written in a professional tone but should seem authentic, also do not include contact info at the top of the letter.`;
+  prompt += ` The cover letter should favor being authentic, eager, and individualistic over high level grammar. DO NOT include contact info at the top of the letter.`;
 
   return prompt;
 };
