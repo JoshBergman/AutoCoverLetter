@@ -1,6 +1,7 @@
 export const addSiteView = () => {
   const milliseconds_Until_Next_View_Counts = 86400000; //1 day in milliseconds
-  const viewUrl = "http://too-simple-analytics.herokuapp.com/std/view/AutoCL";
+  const viewUrl =
+    "https://tsa-real-765f9ae13226.herokuapp.com/analytic/view/waOVG6gLds1700055514-Auto-CL";
 
   const saveDate = () => {
     const thisDateAsString = new Date().getTime() + "";
@@ -27,8 +28,8 @@ export const addSiteView = () => {
 
   if (currentTime >= nextViewTime) {
     try {
-      //calls db to register view, then saves the time the view was added to local storage
-      fetch(viewUrl);
+      //fetches view, then saves the time the view was added to local storage
+      fetch(viewUrl).catch(() => {});
       saveDate();
     } catch (err) {
       console.error(err);
