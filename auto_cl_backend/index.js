@@ -10,7 +10,7 @@ app.use(helmet());
 
 app.use(
   cors({
-    origin: "https://autocl-abb1d.web.app",
+    origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
